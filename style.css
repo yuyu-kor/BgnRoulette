@@ -9,9 +9,9 @@ body {
     background-color: #f8f8f8;
 }
 
-/* 제목 스타일 */
-h2 {
+.txt_img {
     margin-bottom: 20px;
+    width: 500px;
 }
 
 /* 룰렛 컨테이너 */
@@ -30,6 +30,19 @@ h2 {
     border-radius: 50%;
     position: absolute;
     transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+/* 룰렛 포인터 (인디케이터) */
+.pointer {
+    position: absolute;
+    top: -20px;  /* 룰렛 상단에 배치 */
+    left: 50%;
+    width: 40px;  /* 포인터 이미지 크기 */
+    height: 40px;
+    transform: translateX(-50%);  /* 가운데 정렬 */
+    background: url('images/pin-removebg-preview.png') no-repeat center center;
+    background-size: contain;
+    z-index: 3;  /* 룰렛 위에 표시 */
 }
 
 /* START 버튼 (클릭 가능) */
