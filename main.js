@@ -1,4 +1,5 @@
 let isSpinning = false;
+let currentDegree = 0; // 🌟 이전 회전값 저장 (초기값: 0)
 
 // 룰렛 칸을 숫자로 설정 (1~5) → 이미지에 맞춰 텍스트 매칭
 const prizeTexts = {
@@ -15,14 +16,15 @@ function startRoulette() {
 
     const roulette = document.getElementById("roulette");
 
-    // 5등분 룰렛 -> 72도 간격, 5~6바퀴 랜덤 회전 추가
-    let randomDegree = Math.floor(Math.random() * 360) + 1800; 
+    // 5~6바퀴 랜덤 회전 추가 (이전 회전값에서 더 돌게 만듦)
+    let randomDegree = Math.floor(Math.random() * 360) + 1800;
+    currentDegree += randomDegree; // 🌟 누적 회전값 유지
     
     roulette.style.transition = "transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67)";
-    roulette.style.transform = `rotate(${randomDegree}deg)`;
+    roulette.style.transform = `rotate(${currentDegree}deg)`;
 
     setTimeout(() => {
-        let finalAngle = randomDegree % 360;  // 0~360도 사이로 변환
+        let finalAngle = currentDegree % 360;  // 0~360도 사이로 변환
         let sectionSize = 360 / 5;  // 5등분 = 72도씩 나눔
         let resultNumber = Math.floor(finalAngle / sectionSize) + 1;  // 1~5 범위로 변환
 
