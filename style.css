@@ -58,3 +58,14 @@ body {
     cursor: pointer;
     z-index: 2;
 }
+
+@media screen and (max-width: 430px) {
+	.txt_img{
+		width: 400px;
+	}
+
+	.roulette-container{
+		width: 380px;
+		height: 380px;
+	}
+}
